@@ -1,13 +1,13 @@
 let button = document.getElementById("add-button");
 button.addEventListener('click', () => {
+    // creating new task and adding it  
     let createList = document.createElement("Li");
     createList.className = "li";
     let text = document.getElementById("input").value;
     if (text === '') {
       alert("You must write something!");
     } else {
-      // creating new task and adding it  
-      let input = document.getElementById('input');
+      let input = document.getElementById("input");
       input.value = "";
       let addOn = document.createTextNode(text);
       createList.appendChild(addOn);
@@ -29,10 +29,16 @@ button.addEventListener('click', () => {
           createList.classList.toggle('checked');
             })
         } 
+      // clear tasks pressing clear
+      let clear = document.getElementById("clear-text")
+      clear.addEventListener('click', () => {
+        createList.style.display = "none";
+      })  
     }   
 })
 
-let input = document.getElementById('input');
+// submit task using enter
+let input = document.getElementById("input");
 input.addEventListener("keyup", (event) => {
   if(event.key === 'Enter') {
     button.click();
